@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/currency_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/card_margin"
+        android:elevation="@dimen/card_elevation"
+        app:cardCornerRadius="@dimen/card_corner_radius">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/currency_image"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                tools:src="@mipmap/ic_launcher" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="4"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/currency_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/currency_name"
+                    tools:text="Currency Name" />
+
+                <TextView
+                    android:id="@+id/current_rate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/current_rate"
+                    tools:text="123546" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="8dp"
+                            android:text="1h:" />
+
+                        <ImageView
+                            android:id="@+id/image_hour"
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_marginRight="4dp"
+                            android:gravity="center"
+                            tools:src="@mipmap/ic_launcher" />
+
+                        <TextView
+                            android:id="@+id/change_in_hour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="12.5%" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="8dp"
+                            android:text="1d:" />
+
+                        <ImageView
+                            android:id="@+id/image_day"
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_marginRight="4dp"
+                            android:gravity="center"
+                            tools:src="@mipmap/ic_launcher" />
+
+                        <TextView
+                            android:id="@+id/change_in_day"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="12.5%" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="1w:" />
+
+                    <ImageView
+                        android:id="@+id/image_week"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_marginRight="4dp"
+                        android:gravity="center"
+                        tools:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/change_in_week"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="12.5%" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
