@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Crypto Currencies</string>
+    <string name="backdrop_title">CryptoCurrencies</string>
 </resources>

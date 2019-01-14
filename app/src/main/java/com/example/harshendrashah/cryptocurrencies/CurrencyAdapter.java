@@ -11,12 +11,12 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class CurrrencyAdapter extends RecyclerView.Adapter<CurrrencyAdapter.MyViewHolder> {
+public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.MyViewHolder> {
 
     private Context mContext;
     private List<Currency> currencyList;
 
-    public CurrrencyAdapter(Context mContext, List<Currency> currencyList) {
+    public CurrencyAdapter(Context mContext, List<Currency> currencyList) {
         this.mContext = mContext;
         this.currencyList = currencyList;
     }
