@@ -5,28 +5,38 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
+
+import com.special.ResideMenu.ResideMenu;
+import com.special.ResideMenu.ResideMenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private RecyclerView recyclerView;
     private CurrencyAdapter adapter;
     private List<Currency> currencyList;
+
+    private ResideMenu resideMenu;
+    private MainActivity mContext;
+    private ResideMenuItem itemHome;
+    private ResideMenuItem itemTrending;
+    private ResideMenuItem itemNews;
+    private ResideMenuItem itemConverter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
 
-        initCollapsingToolbar();
+        setupMenu();
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
@@ -38,44 +48,50 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
-        prepareAlbums();
+        prepareCurrencies();
 
     }
 
-    /**
-     * Initializing collapsing toolbar
-     * Will show and hide the toolbar title on scroll
-     */
-    private void initCollapsingToolbar() {
-        final CollapsingToolbarLayout collapsingToolbar =
-                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle(" ");
-        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
-        appBarLayout.setExpanded(true);
+    private void setupMenu() {
 
-        // hiding & showing the title when toolbar expanded & collapsed
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isShow = false;
-            int scrollRange = -1;
+        resideMenu = new ResideMenu(this);
+        resideMenu.setBackground(R.drawable.ic_launcher_background);
+        resideMenu.attachToActivity(this);
 
+        itemHome = new ResideMenuItem(this, R.mipmap.ic_launcher_round, "Home");
+        itemNews = new ResideMenuItem(this, R.mipmap.ic_launcher_round, "News");
+        itemTrending = new ResideMenuItem(this, R.mipmap.ic_launcher_round, "Trending");
+        itemConverter = new ResideMenuItem(this, R.mipmap.ic_launcher_round, "Converter");
+
+        resideMenu.addMenuItem(itemHome, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemNews, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemTrending, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemConverter, ResideMenu.DIRECTION_LEFT);
+
+        resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
+
+        findViewById(R.id.btn_menu).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1) {
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbar.setTitle(getString(R.string.app_name));
-                    isShow = true;
-                } else if (isShow) {
-                    collapsingToolbar.setTitle(" ");
-                    isShow = false;
-                }
+            public void onClick(View view) {
+                resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
             }
         });
     }
 
-    private void prepareAlbums() {
+    private void prepareCurrencies() {
         Currency a = new Currency("a","a", "a", "a", "a", "" );
+        currencyList.add(a);
+        a = new Currency("a","a", "a", "a", "a", "" );
+        currencyList.add(a);
+        a = new Currency("a","a", "a", "a", "a", "" );
+        currencyList.add(a);
+        a = new Currency("a","a", "a", "a", "a", "" );
+        currencyList.add(a);
+        a = new Currency("a","a", "a", "a", "a", "" );
+        currencyList.add(a);
+        a = new Currency("a","a", "a", "a", "a", "" );
+        currencyList.add(a);
+        a = new Currency("a","a", "a", "a", "a", "" );
         currencyList.add(a);
         a = new Currency("a","a", "a", "a", "a", "" );
         currencyList.add(a);
@@ -88,4 +104,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onClick(View view) {
+        if (view == itemHome){
+            Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
+        }else if (view == itemTrending){
+            Toast.makeText(this, "Trending", Toast.LENGTH_SHORT).show();
+        }else if (view == itemNews){
+            Toast.makeText(this, "News", Toast.LENGTH_SHORT).show();
+        }else if (view == itemConverter){
+            Toast.makeText(this, "Converter", Toast.LENGTH_SHORT).show();
+        }
+
+        resideMenu.closeMenu();
+    }
+
+    // What good method is to access resideMenu？
+    public ResideMenu getResideMenu(){
+        return resideMenu;
+    }
 }
