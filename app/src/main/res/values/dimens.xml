@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="backdrop_title">30dp</dimen>
-    <dimen name="detail_backdrop_height">250dp</dimen>
     <!-- Currency card dimensions -->
-    <dimen name="card_margin">8dp</dimen>
-    <dimen name="card_corner_radius">4dp</dimen>
-    <dimen name="card_elevation">3dp</dimen>
+    <dimen name="card_margin">16dp</dimen>
+    <dimen name="card_corner_radius">16dp</dimen>
+    <dimen name="card_elevation">10dp</dimen>
     <dimen name="currency_name">24sp</dimen>
     <dimen name="current_rate">18sp</dimen>
+    <dimen name="currency_image">75dp</dimen>
 </resources>

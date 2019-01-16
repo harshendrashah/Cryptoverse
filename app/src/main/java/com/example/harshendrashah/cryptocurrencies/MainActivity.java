@@ -52,12 +52,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
+        Toolbar toolbar = findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
 
         setupMenu();
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView = findViewById(R.id.recycler_view);
 
         currencyList = new ArrayList<>();
         adapter = new CurrencyAdapter(this, currencyList);
@@ -107,14 +107,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        String url = BASE_URL + "/data/pricemultifull?fsyms=ETH,DASH,REP,BTC&tsyms=USD&api_key=49ceb68c493a37ad44c9c6eecf0493d12b0c308c86348a97efe641a660816324";
+        String url = BASE_URL + "/data/pricemultifull?fsyms=ETH,DASH,REP,BTC&tsyms=USD";
 
         JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    JSONObject js = response.getJSONObject("RAW");
+                    JSONObject js = response.getJSONObject("DISPLAY");
                     for (int i=0; i < js.names().length(); i++) {
                         names.add(js.names().getString(i));
                         JSONObject details = js.getJSONObject(js.names().getString(i)).getJSONObject("USD");
