@@ -4,21 +4,21 @@ public class Currency {
 
     String name;
     String currentRate;
-    String changeInHour;
-    String changeInDay;
-    String changeInWeek;
+    String openDay;
+    String lowDay;
+    String highDay;
     String imageURL;
 
     public Currency() {
     }
 
-    public Currency(String name, String currentRate, String changeInHour,
-                    String changeInDay, String changeInWeek, String imageURL) {
+    public Currency(String name, String currentRate, String lowDay,
+                    String highDay, String openDay, String imageURL) {
         this.name = name;
         this.currentRate = currentRate;
-        this.changeInHour = changeInHour;
-        this.changeInDay = changeInDay;
-        this.changeInWeek = changeInWeek;
+        this.lowDay = lowDay;
+        this.highDay = highDay;
+        this.openDay = openDay;
         this.imageURL = imageURL;
     }
 
@@ -38,28 +38,28 @@ public class Currency {
         this.currentRate = currentRate;
     }
 
-    public String getChangeInHour() {
-        return changeInHour;
+    public String getLowDay() {
+        return lowDay;
     }
 
-    public void setChangeInHour(String changeInHour) {
-        this.changeInHour = changeInHour;
+    public void setLowDay(String lowDay) {
+        this.lowDay = lowDay;
     }
 
-    public String getChangeInDay() {
-        return changeInDay;
+    public String getHighDay() {
+        return highDay;
     }
 
-    public void setChangeInDay(String changeInDay) {
-        this.changeInDay = changeInDay;
+    public void setHighDay(String highDay) {
+        this.highDay = highDay;
     }
 
-    public String getChangeInWeek() {
-        return changeInWeek;
+    public String getOpenDay() {
+        return openDay;
     }
 
-    public void setChangeInWeek(String changeInWeek) {
-        this.changeInWeek = changeInWeek;
+    public void setOpenDay(String openDay) {
+        this.openDay = openDay;
     }
 
     public String getImageURL() {

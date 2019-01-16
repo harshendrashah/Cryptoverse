@@ -20,6 +20,8 @@ import com.android.volley.toolbox.Volley;
 import com.special.ResideMenu.ResideMenu;
 import com.special.ResideMenu.ResideMenuItem;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -39,6 +41,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ResideMenuItem itemTrending;
     private ResideMenuItem itemNews;
     private ResideMenuItem itemConverter;
+
+
+    ArrayList<String> names = new ArrayList<>();
+    String BASE_URL = "https://min-api.cryptocompare.com";
+    String IMAGE_URL= "https://www.cryptocompare.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +83,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         itemTrending = new ResideMenuItem(this, R.drawable.trending, "Trending");
         itemConverter = new ResideMenuItem(this, R.drawable.converter, "Converter");
 
+        itemDashboard.setOnClickListener(this);
+        itemNews.setOnClickListener(this);
+        itemTrending.setOnClickListener(this);
+        itemConverter.setOnClickListener(this);
+
         resideMenu.addMenuItem(itemDashboard, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemNews, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemTrending, ResideMenu.DIRECTION_LEFT);
@@ -95,14 +107,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        String url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD";
+        String url = BASE_URL + "/data/pricemultifull?fsyms=ETH,DASH,REP,BTC&tsyms=USD&api_key=49ceb68c493a37ad44c9c6eecf0493d12b0c308c86348a97efe641a660816324";
 
         JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
             @Override
-
             public void onResponse(JSONObject response) {
-                Log.i("JSON Data: ", response.toString());
+                try {
+                    JSONObject js = response.getJSONObject("RAW");
+                    for (int i=0; i < js.names().length(); i++) {
+                        names.add(js.names().getString(i));
+                        JSONObject details = js.getJSONObject(js.names().getString(i)).getJSONObject("USD");
+                        String image = IMAGE_URL + details.getString("IMAGEURL");
+
+                        Currency c = new Currency(names.get(i), details.getString("PRICE"), details.getString("LOWDAY"), details.getString("HIGHDAY"), details.getString("OPENDAY"), image);
+                        currencyList.add(c);
+                    }
+                    adapter.notifyDataSetChanged();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -113,28 +138,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         queue.add(jsObjRequest);
 
-        Currency a = new Currency("a","a", "a", "a", "a", "" );
-        currencyList.add(a);
-        a = new Currency("a","a", "a", "a", "a", "" );
-        currencyList.add(a);
-        a = new Currency("a","a", "a", "a", "a", "" );
-        currencyList.add(a);
-        a = new Currency("a","a", "a", "a", "a", "" );
-        currencyList.add(a);
-        a = new Currency("a","a", "a", "a", "a", "" );
-        currencyList.add(a);
-        a = new Currency("a","a", "a", "a", "a", "" );
-        currencyList.add(a);
-        a = new Currency("a","a", "a", "a", "a", "" );
-        currencyList.add(a);
-        a = new Currency("a","a", "a", "a", "a", "" );
-        currencyList.add(a);
-        a = new Currency("a","a", "a", "a", "a", "" );
-        currencyList.add(a);
-        a = new Currency("a","a", "a", "a", "a", "" );
-        currencyList.add(a);
-
-        adapter.notifyDataSetChanged();
     }
 
 

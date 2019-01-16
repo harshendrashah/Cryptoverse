@@ -2,12 +2,15 @@ package com.example.harshendrashah.cryptocurrencies;
 
 import android.content.Context;
 import android.net.Uri;
+import android.support.v4.util.CircularIntArray;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -34,11 +37,10 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.MyView
         Currency currency = currencyList.get(position);
         holder.name.setText(currency.getName());
         holder.currentRate.setText(currency.getCurrentRate());
-        holder.changeInHour.setText(currency.getChangeInHour());
-        holder.changeInDay.setText(currency.getChangeInDay());
-        holder.changeInWeek.setText(currency.getChangeInWeek());
-        holder.currencyImage.setImageURI(Uri.parse(currency.getImageURL()));
-
+        holder.openDay.setText(currency.getOpenDay());
+        holder.lowDay.setText(currency.getLowDay());
+        holder.highDay.setText(currency.getHighDay());
+        Picasso.get().load(currency.getImageURL()).into(holder.currencyImage);
     }
 
     @Override
@@ -47,20 +49,17 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.MyView
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView name, currentRate, changeInHour, changeInDay, changeInWeek;
-        public ImageView currencyImage, imageHour, imageDay, imageWeek;
+        public TextView name, currentRate, lowDay, highDay, openDay;
+        public de.hdodenhof.circleimageview.CircleImageView currencyImage;
 
         public MyViewHolder(View view) {
             super(view);
             currencyImage = view.findViewById(R.id.currency_image);
             name = view.findViewById(R.id.currency_name);
             currentRate = view.findViewById(R.id.current_rate);
-            changeInHour = view.findViewById(R.id.change_in_hour);
-            changeInDay = view.findViewById(R.id.change_in_day);
-            changeInWeek = view.findViewById(R.id.change_in_week);
-            imageDay = view.findViewById(R.id.image_day);
-            imageHour = view.findViewById(R.id.image_hour);
-            imageWeek = view.findViewById(R.id.image_week);
+            lowDay = view.findViewById(R.id.low_day);
+            highDay = view.findViewById(R.id.high_day);
+            openDay = view.findViewById(R.id.open_day);
 
         }
     }

@@ -68,10 +68,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="8dp"
-                            android:text="1h:" />
+                            android:text="Low:" />
 
                         <ImageView
-                            android:id="@+id/image_hour"
                             android:layout_width="12dp"
                             android:layout_height="12dp"
                             android:layout_marginRight="4dp"
@@ -79,10 +78,10 @@
                             tools:src="@mipmap/ic_launcher" />
 
                         <TextView
-                            android:id="@+id/change_in_hour"
+                            android:id="@+id/low_day"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="12.5%" />
+                            tools:text="12.5" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -94,10 +93,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="8dp"
-                            android:text="1d:" />
+                            android:text="High:" />
 
                         <ImageView
-                            android:id="@+id/image_day"
                             android:layout_width="12dp"
                             android:layout_height="12dp"
                             android:layout_marginRight="4dp"
@@ -105,10 +103,10 @@
                             tools:src="@mipmap/ic_launcher" />
 
                         <TextView
-                            android:id="@+id/change_in_day"
+                            android:id="@+id/high_day"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="12.5%" />
+                            tools:text="12.5" />
 
                     </LinearLayout>
 
@@ -123,10 +121,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="8dp"
-                        android:text="1w:" />
+                        android:text="Open:" />
 
                     <ImageView
-                        android:id="@+id/image_week"
                         android:layout_width="12dp"
                         android:layout_height="12dp"
                         android:layout_marginRight="4dp"
@@ -134,10 +131,10 @@
                         tools:src="@mipmap/ic_launcher" />
 
                     <TextView
-                        android:id="@+id/change_in_week"
+                        android:id="@+id/open_day"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="12.5%" />
+                        tools:text="12.5" />
 
                 </LinearLayout>
 
