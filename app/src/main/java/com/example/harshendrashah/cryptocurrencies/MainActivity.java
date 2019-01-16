@@ -1,21 +1,33 @@
 package com.example.harshendrashah.cryptocurrencies;
 
+import android.app.DownloadManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.special.ResideMenu.ResideMenu;
 import com.special.ResideMenu.ResideMenuItem;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private CurrencyAdapter mAdapter;
 
     private RecyclerView recyclerView;
     private CurrencyAdapter adapter;
@@ -23,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ResideMenu resideMenu;
     private MainActivity mContext;
-    private ResideMenuItem itemHome;
+    private ResideMenuItem itemDashboard;
     private ResideMenuItem itemTrending;
     private ResideMenuItem itemNews;
     private ResideMenuItem itemConverter;
@@ -33,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.app_bar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
 
         setupMenu();
@@ -48,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
+
         prepareCurrencies();
 
     }
@@ -55,15 +68,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setupMenu() {
 
         resideMenu = new ResideMenu(this);
-        resideMenu.setBackground(R.drawable.ic_launcher_background);
+        resideMenu.setBackground(R.drawable.gradient_background);
         resideMenu.attachToActivity(this);
 
-        itemHome = new ResideMenuItem(this, R.mipmap.ic_launcher_round, "Home");
-        itemNews = new ResideMenuItem(this, R.mipmap.ic_launcher_round, "News");
-        itemTrending = new ResideMenuItem(this, R.mipmap.ic_launcher_round, "Trending");
-        itemConverter = new ResideMenuItem(this, R.mipmap.ic_launcher_round, "Converter");
+        itemDashboard = new ResideMenuItem(this, R.drawable.home, "Dashboard");
+        itemNews = new ResideMenuItem(this, R.drawable.news, "News");
+        itemTrending = new ResideMenuItem(this, R.drawable.trending, "Trending");
+        itemConverter = new ResideMenuItem(this, R.drawable.converter, "Converter");
 
-        resideMenu.addMenuItem(itemHome, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemDashboard, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemNews, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemTrending, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemConverter, ResideMenu.DIRECTION_LEFT);
@@ -79,6 +92,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void prepareCurrencies() {
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        String url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD";
+
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+            @Override
+
+            public void onResponse(JSONObject response) {
+                Log.i("JSON Data: ", response.toString());
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        queue.add(jsObjRequest);
+
         Currency a = new Currency("a","a", "a", "a", "a", "" );
         currencyList.add(a);
         a = new Currency("a","a", "a", "a", "a", "" );
@@ -106,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if (view == itemHome){
+        if (view == itemDashboard){
             Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
         }else if (view == itemTrending){
             Toast.makeText(this, "Trending", Toast.LENGTH_SHORT).show();
