@@ -3,8 +3,6 @@ package com.example.harshendrashah.cryptocurrencies;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -37,7 +35,8 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.MyView
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         Currency currency = currencyList.get(position);
-        holder.name.setText(currency.getName());
+        String name = currency.getFullName() + " (" + currency.getCode() + ")";
+        holder.name.setText(name);
         holder.currentRate.setText(currency.getCurrentRate());
         holder.openDay.setText(currency.getOpenDay());
         holder.lowDay.setText(currency.getLowDay());
@@ -70,7 +69,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.MyView
                 @Override
                 public void onClick(View v) {
                     Bundle bundle = new Bundle();
-                    bundle.putString("name", currency.getName());
+                    bundle.putString("fullName", currency.getCode());
                     // set CurrencyDetailsFragment Arguments
                     AppCompatActivity activity = (AppCompatActivity) v.getContext();
                     Fragment fragment = new CurrencyDetailsFragment();

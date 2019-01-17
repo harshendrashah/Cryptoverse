@@ -20,7 +20,7 @@ public class CurrencyDetailsFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-            currencyName = getArguments().getString("name");
+            currencyName = getArguments().getString("fullName");
             Toast.makeText(getContext(), "Hello " +currencyName, Toast.LENGTH_SHORT).show();
         }
 

@@ -2,7 +2,8 @@ package com.example.harshendrashah.cryptocurrencies;
 
 public class Currency {
 
-    String name;
+    String fullName;
+    String code;
     String currentRate;
     String openDay;
     String lowDay;
@@ -12,9 +13,10 @@ public class Currency {
     public Currency() {
     }
 
-    public Currency(String name, String currentRate, String lowDay,
+    public Currency(String fullName, String code, String currentRate, String lowDay,
                     String highDay, String openDay, String imageURL) {
-        this.name = name;
+        this.fullName = fullName;
+        this.code = code;
         this.currentRate = currentRate;
         this.lowDay = lowDay;
         this.highDay = highDay;
@@ -22,12 +24,20 @@ public class Currency {
         this.imageURL = imageURL;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getCurrentRate() {

@@ -4,7 +4,7 @@
     <dimen name="card_margin">16dp</dimen>
     <dimen name="card_corner_radius">16dp</dimen>
     <dimen name="card_elevation">10dp</dimen>
-    <dimen name="currency_name">24sp</dimen>
+    <dimen name="currency_name">22sp</dimen>
     <dimen name="current_rate">18sp</dimen>
     <dimen name="currency_image">75dp</dimen>
 </resources>

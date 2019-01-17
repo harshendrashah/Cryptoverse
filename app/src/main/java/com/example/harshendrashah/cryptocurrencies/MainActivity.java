@@ -1,6 +1,5 @@
 package com.example.harshendrashah.cryptocurrencies;
 
-import android.app.DownloadManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -28,8 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
-    private CurrencyAdapter mAdapter;
 
     private RecyclerView recyclerView;
     private CurrencyAdapter adapter;
@@ -107,21 +104,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        String url = BASE_URL + "/data/pricemultifull?fsyms=ETH,DASH,REP,BTC&tsyms=USD";
+        String url = BASE_URL + "/data/top/mktcapfull?limit=50&tsym=USD&api_key=49ceb68c493a37ad44c9c6eecf0493d12b0c308c86348a97efe641a660816324";
 
         JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    JSONObject js = response.getJSONObject("DISPLAY");
-                    for (int i=0; i < js.names().length(); i++) {
-                        names.add(js.names().getString(i));
-                        JSONObject details = js.getJSONObject(js.names().getString(i)).getJSONObject("USD");
-                        String image = IMAGE_URL + details.getString("IMAGEURL");
+                    JSONArray js = response.getJSONArray("Data");
+                    //Log.i("*******", ""+js.length());
+                    for (int i=0; i < js.length(); i++) {
+                        JSONObject display = js.getJSONObject(i).getJSONObject("DISPLAY").getJSONObject("USD");
+                        String image = IMAGE_URL + display.getString("IMAGEURL");
+                        JSONObject coinInfo = js.getJSONObject(i).getJSONObject("CoinInfo");
+                        //Log.i("*******", coinInfo.toString());
+                        names.add(coinInfo.getString("FullName"));
+                        //Log.i("Names", names.get(i));
+                        Log.i("nnnn: ", names.get(i));
+                        Log.i("nnnn: ", coinInfo.getString("Name") );
+                        Log.i("nnnn:",display.toString() );
+                        Log.i("nnnn: ", display.getString("PRICE") );
+                        Log.i("nnnn:",display.getString("LOWDAY"));
+                        Log.i("nnnn:",display.getString("HIGHDAY"));
+                        Log.i("nnnn:",display.getString("OPENDAY"));
 
-                        Currency c = new Currency(names.get(i), details.getString("PRICE"), details.getString("LOWDAY"), details.getString("HIGHDAY"), details.getString("OPENDAY"), image);
+
+                        Currency c = new Currency(names.get(i), coinInfo.getString("Name"), display.getString("PRICE"),
+                                display.getString("LOWDAY"), display.getString("HIGHDAY"),
+                                display.getString("OPENDAY"), image);
                         currencyList.add(c);
+
+                        Log.i("nnnn: ", ""+i );
                     }
                     adapter.notifyDataSetChanged();
                 } catch (JSONException e) {
@@ -132,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Log.i("******", "Error");
             }
         });
 

@@ -47,7 +47,7 @@
                     android:textSize="@dimen/currency_name"
                     android:textAllCaps="true"
                     android:textColor="@android:color/black"
-                    android:textStyle="bold|italic"
+                    android:textStyle="bold"
                     tools:text="Currency Name" />
 
                 <TextView
