@@ -1,6 +1,11 @@
 package com.example.harshendrashah.cryptocurrencies;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +43,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.MyView
         holder.lowDay.setText(currency.getLowDay());
         holder.highDay.setText(currency.getHighDay());
         Picasso.get().load(currency.getImageURL()).into(holder.currencyImage);
+        holder.currency = currency;
     }
 
     @Override
@@ -49,6 +55,8 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.MyView
         public TextView name, currentRate, lowDay, highDay, openDay;
         public de.hdodenhof.circleimageview.CircleImageView currencyImage;
 
+        public Currency currency;
+
         public MyViewHolder(View view) {
             super(view);
             currencyImage = view.findViewById(R.id.currency_image);
@@ -57,6 +65,23 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.MyView
             lowDay = view.findViewById(R.id.low_day);
             highDay = view.findViewById(R.id.high_day);
             openDay = view.findViewById(R.id.open_day);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("name", currency.getName());
+                    // set CurrencyDetailsFragment Arguments
+                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                    Fragment fragment = new CurrencyDetailsFragment();
+                    fragment.setArguments(bundle);
+                    activity.getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.main_content, fragment)
+                            .addToBackStack(null)
+                            .commit();
+                }
+            });
 
         }
     }
