@@ -1,5 +1,6 @@
 package com.example.harshendrashah.cryptocurrencies;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -33,12 +34,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private List<Currency> currencyList;
 
     private ResideMenu resideMenu;
-    private MainActivity mContext;
     private ResideMenuItem itemDashboard;
     private ResideMenuItem itemTrending;
     private ResideMenuItem itemNews;
     private ResideMenuItem itemConverter;
-
 
     ArrayList<String> names = new ArrayList<>();
     String BASE_URL = "https://min-api.cryptocompare.com";
@@ -64,8 +63,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
-
-        prepareCurrencies();
+        String url = BASE_URL + "/data/top/mktcapfull?limit=50&tsym=USD&api_key=49ceb68c493a37ad44c9c6eecf0493d12b0c308c86348a97efe641a660816324";
+        prepareCurrencies(url);
 
     }
 
@@ -100,11 +99,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    private void prepareCurrencies() {
+    private void prepareCurrencies(String url) {
 
         RequestQueue queue = Volley.newRequestQueue(this);
-
-        String url = BASE_URL + "/data/top/mktcapfull?limit=50&tsym=USD&api_key=49ceb68c493a37ad44c9c6eecf0493d12b0c308c86348a97efe641a660816324";
 
         JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
@@ -112,24 +109,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onResponse(JSONObject response) {
                 try {
                     JSONArray js = response.getJSONArray("Data");
-                    //Log.i("*******", ""+js.length());
                     for (int i=0; i < js.length(); i++) {
                         JSONObject display = js.getJSONObject(i).getJSONObject("DISPLAY").getJSONObject("USD");
                         String image = IMAGE_URL + display.getString("IMAGEURL");
                         JSONObject coinInfo = js.getJSONObject(i).getJSONObject("CoinInfo");
-                        //Log.i("*******", coinInfo.toString());
                         names.add(coinInfo.getString("FullName"));
-                        //Log.i("Names", names.get(i));
-                        Log.i("nnnn: ", names.get(i));
-                        Log.i("nnnn: ", coinInfo.getString("Name") );
-                        Log.i("nnnn:",display.toString() );
-                        Log.i("nnnn: ", display.getString("PRICE") );
-                        Log.i("nnnn:",display.getString("LOWDAY"));
-                        Log.i("nnnn:",display.getString("HIGHDAY"));
-                        Log.i("nnnn:",display.getString("OPENDAY"));
 
-
-                        Currency c = new Currency(names.get(i), coinInfo.getString("Name"), display.getString("PRICE"),
+                        Currency c = new Currency(coinInfo.getString("FullName"), coinInfo.getString("Name"), display.getString("PRICE"),
                                 display.getString("LOWDAY"), display.getString("HIGHDAY"),
                                 display.getString("OPENDAY"), image);
                         currencyList.add(c);
@@ -159,6 +145,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (view == itemDashboard){
             Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
         }else if (view == itemTrending){
+            Intent i = new Intent(MainActivity.this, TrendingActivity.class);
+            startActivity(i);
             Toast.makeText(this, "Trending", Toast.LENGTH_SHORT).show();
         }else if (view == itemNews){
             Toast.makeText(this, "News", Toast.LENGTH_SHORT).show();
