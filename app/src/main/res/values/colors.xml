@@ -7,4 +7,10 @@
     <color name="green">#32CD32</color>
     <color name="red">#D50000</color>
     <color name="blue">#1A237E</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+
+    <color name="currencyDetailsCardBackground">#30ffffff</color>
+    <color name="currencyDetailsCardText">#f6f6fa</color>
+    <color name="currencyDetailsTextColor">#29398d</color>
 </resources>

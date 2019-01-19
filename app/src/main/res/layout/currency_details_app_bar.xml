@@ -10,9 +10,10 @@
         android:layout_height="match_parent">
 
         <ImageButton
-            android:id="@+id/btn_menu"
+            android:id="@+id/btn_back"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:background="@android:color/transparent"
             android:src="@drawable/menu"
@@ -20,15 +21,15 @@
 
         <TextView
             android:id="@+id/txt_title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_toEndOf="@+id/btn_menu"
-            android:text="@string/app_name"
+            android:layout_marginRight="16dp"
+            android:text="Bitcoin"
+            android:textAllCaps="true"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
