@@ -65,6 +65,8 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.MyView
             highDay = view.findViewById(R.id.high_day);
             openDay = view.findViewById(R.id.open_day);
 
+
+
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -72,13 +74,22 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.MyView
                     bundle.putString("fullName", currency.getCode());
                     // set CurrencyDetailsFragment Arguments
                     AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                    String s = activity.getClass().getSimpleName();
                     Fragment fragment = new CurrencyDetailsFragment();
                     fragment.setArguments(bundle);
-                    activity.getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(R.id.main_content, fragment)
-                            .addToBackStack(null)
-                            .commit();
+                    if(s.equals("MainActivity")) {
+                        activity.getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.activity_main, fragment)
+                                .addToBackStack(null)
+                                .commit();
+                    } else if (s.equals("AllCryptosActivity")) {
+                        activity.getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.activity_all_cryptos, fragment)
+                                .addToBackStack(null)
+                                .commit();
+                    }
                 }
             });
 

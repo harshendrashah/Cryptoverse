@@ -17,10 +17,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.harshendrashah.cryptocurrencies.Currency;
-import com.example.harshendrashah.cryptocurrencies.CurrencyAdapter;
-import com.example.harshendrashah.cryptocurrencies.MainActivity;
-import com.example.harshendrashah.cryptocurrencies.R;
 import com.special.ResideMenu.ResideMenu;
 import com.special.ResideMenu.ResideMenuItem;
 
@@ -50,7 +46,7 @@ public class AllCryptosActivity extends AppCompatActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_all_cryptos);
 
         Toolbar toolbar = findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
