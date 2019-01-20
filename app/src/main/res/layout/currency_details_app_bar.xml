@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/currency_details_app_bar"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/actionBarSize"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
-        <ImageButton
-            android:id="@+id/btn_back"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:background="@android:color/transparent"
-            android:src="@drawable/menu"
-            android:layout_centerVertical="true"/>
+        <!--<ImageButton-->
+            <!--android:id="@+id/btn_back"-->
+            <!--android:layout_width="24dp"-->
+            <!--android:layout_height="24dp"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:background="@android:color/transparent"-->
+            <!--android:src="@drawable/menu"-->
+            <!--android:layout_centerVertical="true"/>-->
 
-        <TextView
-            android:id="@+id/txt_title"
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="16dp"
-            android:text="Bitcoin"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+        <!--<TextView-->
+            <!--android:id="@+id/txt_title"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="16dp"-->
+            <!--android:text="Bitcoin"-->
+            <!--android:textAllCaps="true"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textSize="24sp"-->
+            <!--android:textStyle="bold" />-->
 
-    </RelativeLayout>
+    <!--</RelativeLayout>-->
 </android.support.v7.widget.Toolbar>

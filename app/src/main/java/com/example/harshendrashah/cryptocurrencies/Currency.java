@@ -9,12 +9,13 @@ public class Currency {
     String lowDay;
     String highDay;
     String imageURL;
+    String algorithm;
 
     public Currency() {
     }
 
     public Currency(String fullName, String code, String currentRate, String lowDay,
-                    String highDay, String openDay, String imageURL) {
+                    String highDay, String openDay, String imageURL, String algorithm) {
         this.fullName = fullName;
         this.code = code;
         this.currentRate = currentRate;
@@ -22,6 +23,7 @@ public class Currency {
         this.highDay = highDay;
         this.openDay = openDay;
         this.imageURL = imageURL;
+        this.algorithm = algorithm;
     }
 
     public String getFullName() {
@@ -79,4 +81,12 @@ public class Currency {
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
+    public String getAlgorithm() {
+        return algorithm;
+    }
+
+    public void setAlgorithm(String algorithm) {
+        this.algorithm = algorithm;
+    }
+
 }

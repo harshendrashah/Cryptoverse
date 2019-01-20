@@ -18,9 +18,21 @@
             android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent">
 
-            <include
-                android:id="@+id/currency_details_app_bar"
-                layout="@layout/currency_details_app_bar" />
+            <!--<include-->
+                <!--android:id="@+id/currency_details_app_bar"-->
+                <!--layout="@layout/currency_details_app_bar" />-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/currency_details_title"
+                android:text="ashjahfjk"
+                android:textSize="24sp"
+                android:layout_margin="16dp"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
 
             <android.support.design.card.MaterialCardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/currency_details_card"
@@ -28,7 +40,7 @@
                 android:layout_height="200dp"
                 android:layout_margin="16dp"
                 app:cardCornerRadius="8dp"
-                app:layout_constraintTop_toBottomOf="@id/currency_details_app_bar"
+                app:layout_constraintTop_toBottomOf="@id/currency_details_title"
                 card_view:cardBackgroundColor="@color/currencyDetailsCardBackground"
                 card_view:cardElevation="0dp">
 
@@ -54,7 +66,7 @@
                                 android:id="@+id/currency_details_price"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="$ 0.0000002"
+                                tools:text="$ 0.0000002"
                                 android:textColor="@color/white"
                                 android:textSize="24sp" />
 
@@ -73,40 +85,64 @@
 
                         </LinearLayout>
 
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:gravity="end"-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:padding="4dp">-->
+
+                        <!--<TextView-->
+                        <!--android:id="@+id/currency_details_market_cap"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="$ 0.0000002"-->
+                        <!--android:textColor="@color/white"-->
+                        <!--android:textSize="24sp" />-->
+
+                        <!--<View-->
+                        <!--android:layout_width="20dp"-->
+                        <!--android:layout_height="1dp"-->
+                        <!--android:layout_marginRight="4dp"-->
+                        <!--android:background="@color/white" />-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="Market Cap"-->
+                        <!--android:textColor="@color/currencyDetailsCardText"-->
+                        <!--android:textSize="24sp" />-->
+
+                        <!--</LinearLayout>-->
+
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="end"
-                            android:orientation="vertical"
-                            android:padding="4dp">
+                            android:layout_gravity="center_vertical"
+                            android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/currency_details_market_cap"
+                                android:id="@+id/currency_details_CNG_PTC"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="$ 0.0000002"
-                                android:textColor="@color/white"
-                                android:textSize="24sp" />
-
-                            <View
-                                android:layout_width="20dp"
-                                android:layout_height="1dp"
-                                android:layout_marginRight="4dp"
-                                android:background="@color/white" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Market Cap"
+                                android:text="1.05%"
                                 android:textColor="@color/currencyDetailsCardText"
-                                android:textSize="24sp" />
+                                android:textSize="22sp" />
 
+                            <ImageView
+                                android:id="@+id/currency_details_CNG_image"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="2dp"
+                                tools:src="@android:drawable/arrow_down_float" />
                         </LinearLayout>
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/above_image"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -120,10 +156,10 @@
                             android:padding="4dp">
 
                             <TextView
-                                android:id="@+id/currency_details_supply"
+                                android:id="@+id/market_cap"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="10,00,000"
+                                tools:text="10,00,000"
                                 android:textColor="@color/white"
                                 android:textSize="18sp" />
 
@@ -136,7 +172,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Supply"
+                                android:text="MKTCAP"
                                 android:textColor="@color/currencyDetailsCardText"
                                 android:textSize="18sp" />
 
@@ -154,7 +190,7 @@
                                 android:id="@+id/currency_details_algo"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="SHA 256"
+                                tools:text="SHA 256"
                                 android:textColor="@color/white"
                                 android:textSize="18sp" />
 
@@ -184,7 +220,7 @@
                                 android:id="@+id/currency_details_market"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="CCADS"
+                                tools:text="CCADS"
                                 android:textColor="@color/white"
                                 android:textSize="18sp" />
 
@@ -215,7 +251,7 @@
             android:id="@+id/currency_details_image"
             android:layout_width="@dimen/currency_image"
             android:layout_height="100dp"
-            android:src="@mipmap/ic_launcher_round"
+            tools:src="@mipmap/ic_launcher_round"
             app:layout_constraintBottom_toBottomOf="@id/constraint_layout"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -225,126 +261,244 @@
             android:id="@+id/today_text_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/currency_details_image"
+            android:paddingLeft="16dp"
+            android:paddingTop="4dp"
             android:text="TODAY:"
             android:textColor="@color/white"
-            android:paddingTop="4dp"
-            android:paddingLeft="16dp"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/currency_details_image" />
 
-        <android.support.design.card.MaterialCardView
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <android.support.design.card.MaterialCardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_details_today"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
             app:cardCornerRadius="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            card_view:cardBackgroundColor="#EFEFFB"
-            app:layout_constraintTop_toBottomOf="@id/today_text_view">
-
+            app:layout_constraintTop_toBottomOf="@id/today_text_view"
+            card_view:cardBackgroundColor="#EFEFFB">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="8dp">
+                android:orientation="vertical">
+
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:padding="4dp"
-                    android:orientation="vertical">
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/currency_details_low"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="10,00,000"
-                        android:textColor="@color/red"
-                        android:textSize="18sp" />
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:padding="4dp">
 
-                    <View
-                        android:layout_width="20dp"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="4dp"
-                        android:background="@color/currencyDetailsTextColor" />
+                        <TextView
+                            android:id="@+id/currency_details_low"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="10,00,000"
+                            android:textColor="@color/red"
+                            android:textSize="18sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                        <View
+                            android:layout_width="20dp"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="4dp"
+                            android:background="@color/currencyDetailsTextColor" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Low"
+                            android:textColor="@color/red"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Low"
-                        android:textColor="@color/red"
-                        android:textSize="18sp" />
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="4dp">
+
+                        <TextView
+                            android:id="@+id/currency_details_open"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="SHA 256"
+                            android:textColor="@color/currencyDetailsTextColor"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="20dp"
+                            android:layout_height="1dp"
+                            android:background="@color/currencyDetailsTextColor" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Open"
+                            android:textColor="@color/currencyDetailsTextColor"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="vertical"
+                        android:padding="4dp">
+
+                        <TextView
+                            android:id="@+id/currency_details_high"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="CCADS"
+                            android:textColor="@color/green"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="20dp"
+                            android:layout_height="1dp"
+                            android:layout_marginRight="4dp"
+                            android:background="@color/currencyDetailsTextColor" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="High"
+                            android:textColor="@color/green"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/gradient_background" />
+
+
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="4dp">
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/currency_details_open"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="SHA 256"
-                        android:textColor="@color/currencyDetailsTextColor"
-                        android:textSize="18sp" />
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:padding="4dp">
 
-                    <View
-                        android:layout_width="20dp"
-                        android:layout_height="1dp"
-                        android:background="@color/currencyDetailsTextColor" />
+                        <TextView
+                            android:id="@+id/currency_details_volume_hour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="24012353"
+                            android:textColor="@color/currencyDetailsTextColor"
+                            android:textSize="18sp" />
 
-                    <TextView
+                        <View
+                            android:layout_width="20dp"
+                            android:layout_height="1dp"
+                            android:layout_marginRight="4dp"
+                            android:background="@color/currencyDetailsTextColor" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Volume 1h"
+                            android:textColor="@color/currencyDetailsTextColor"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Open"
-                        android:textColor="@color/currencyDetailsTextColor"
-                        android:textSize="18sp" />
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:orientation="vertical"
+                        android:padding="4dp">
+
+                        <TextView
+                            android:id="@+id/currency_details_volume_24hour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="24012353"
+                            android:textColor="@color/currencyDetailsTextColor"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="20dp"
+                            android:layout_height="1dp"
+                            android:layout_marginRight="4dp"
+                            android:background="@color/currencyDetailsTextColor" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Volume 24h"
+                            android:textColor="@color/currencyDetailsTextColor"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:orientation="vertical"
-                    android:padding="4dp">
-
-                    <TextView
-                        android:id="@+id/currency_details_high"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CCADS"
-                        android:textColor="@color/green"
-                        android:textSize="18sp" />
-
-                    <View
-                        android:layout_width="20dp"
-                        android:layout_height="1dp"
-                        android:layout_marginRight="4dp"
-                        android:background="@color/currencyDetailsTextColor" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="High"
-                        android:textColor="@color/green"
-                        android:textSize="18sp" />
-
-                </LinearLayout>
             </LinearLayout>
+
         </android.support.design.card.MaterialCardView>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/trend"
+            app:layout_constraintTop_toBottomOf="@id/card_details_today"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:text="TREND:"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <android.support.design.card.MaterialCardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/trend"
+            card_view:cardBackgroundColor="#EFEFFB">
+
+            <com.jjoe64.graphview.GraphView
+                android:layout_width="match_parent"
+                android:layout_margin="2dp"
+                android:layout_height="300dp"
+                android:id="@+id/graph" />
+
+        </android.support.design.card.MaterialCardView>
 
     </android.support.constraint.ConstraintLayout>
 

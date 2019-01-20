@@ -48,8 +48,6 @@ public class AllCryptosActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_cryptos);
 
-        Toolbar toolbar = findViewById(R.id.app_bar);
-        setSupportActionBar(toolbar);
 
         setupMenu();
 
@@ -63,7 +61,7 @@ public class AllCryptosActivity extends AppCompatActivity implements View.OnClic
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
-        String url = BASE_URL + "/data/top/mktcapfull?limit=50&tsym=USD&api_key=49ceb68c493a37ad44c9c6eecf0493d12b0c308c86348a97efe641a660816324";
+        String url = BASE_URL + "/data/top/mktcapfull?limit=50&tsym=USD";
         prepareCurrencies(url);
 
     }
@@ -117,7 +115,7 @@ public class AllCryptosActivity extends AppCompatActivity implements View.OnClic
 
                         Currency c = new Currency(coinInfo.getString("FullName"), coinInfo.getString("Name"), display.getString("PRICE"),
                                 display.getString("LOWDAY"), display.getString("HIGHDAY"),
-                                display.getString("OPENDAY"), image);
+                                display.getString("OPENDAY"), image, coinInfo.getString("Algorithm"));
                         currencyList.add(c);
 
                         Log.i("nnnn: ", ""+i );

@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.MyViewHolder> {
@@ -65,13 +66,15 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.MyView
             highDay = view.findViewById(R.id.high_day);
             openDay = view.findViewById(R.id.open_day);
 
-
-
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Bundle bundle = new Bundle();
-                    bundle.putString("fullName", currency.getCode());
+                    ArrayList<String> data = new ArrayList<>();
+                    data.add(currency.getCode());
+                    data.add(currency.getFullName());
+                    data.add(currency.getAlgorithm());
+                    bundle.putStringArrayList("Data", data);
                     // set CurrencyDetailsFragment Arguments
                     AppCompatActivity activity = (AppCompatActivity) v.getContext();
                     String s = activity.getClass().getSimpleName();

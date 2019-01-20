@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         Currency c = new Currency(coinInfo.getString("FullName"), coinInfo.getString("Name"), display.getString("PRICE"),
                                 display.getString("LOWDAY"), display.getString("HIGHDAY"),
-                                display.getString("OPENDAY"), image);
+                                display.getString("OPENDAY"), image, coinInfo.getString("Algorithm"));
                         currencyList.add(c);
 
                     }
