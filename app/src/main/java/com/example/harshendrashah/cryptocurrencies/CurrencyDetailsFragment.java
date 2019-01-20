@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -29,6 +30,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
 
 public class CurrencyDetailsFragment extends Fragment {
@@ -38,7 +41,7 @@ public class CurrencyDetailsFragment extends Fragment {
 
     ArrayList<String> data = new ArrayList<>();
 
-    TextView price, changePTC, marketCap, algorithm, market, title;
+    TextView price, changePCT, marketCap, algorithm, market, title;
     ImageView image;
 
     TextView lowPrice, highPrice, openPrice, volume1h, volume24h;
@@ -71,7 +74,7 @@ public class CurrencyDetailsFragment extends Fragment {
 
         title = rootView.findViewById(R.id.currency_details_title);
         price = rootView.findViewById(R.id.currency_details_price);
-        changePTC = rootView.findViewById(R.id.currency_details_CNG_PTC);
+        changePCT = rootView.findViewById(R.id.currency_details_CNG_PTC);
         marketCap = rootView.findViewById(R.id.market_cap);
         algorithm = rootView.findViewById(R.id.currency_details_algo);
         market = rootView.findViewById(R.id.currency_details_market);
@@ -90,14 +93,9 @@ public class CurrencyDetailsFragment extends Fragment {
 
         graph = rootView.findViewById(R.id.graph);
 
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 6)
-        });
-        graph.addSeries(series);
+        plotGraph();
+
+
         return rootView;
     }
 
@@ -114,8 +112,8 @@ public class CurrencyDetailsFragment extends Fragment {
 
                     price.setText(display.getString("PRICE"));
                     market.setText(display.getString("LASTMARKET"));
-                    changePTC.setText(display.getString("CHANGEPCT24HOUR"));
-                    Log.i("*****", response.toString());
+                    String change_pct = display.getString("CHANGEPCT24HOUR")+"%";
+                    changePCT.setText(change_pct);
                     marketCap.setText(display.getString("MKTCAP"));
 
                     algorithm.setText(data.get(2));
@@ -157,4 +155,53 @@ public class CurrencyDetailsFragment extends Fragment {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void plotGraph() {
+
+        String graphURL = BASE_URL + "/data/histoday?fsym="+ data.get(0) + "&tsym=USD&limit=7";
+
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, graphURL, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONArray js = response.getJSONArray("Data");
+                    ArrayList<String> date = new ArrayList<>();
+                    ArrayList<Double> price = new ArrayList<>();
+                    DataPoint[] values = new DataPoint[js.length()];
+                    for (int i = 0; i < js.length(); i++) {
+                        JSONObject data = js.getJSONObject(i);
+                        date.add(getDate(data.getLong("time")));
+                        price.add(data.getDouble("close"));
+                        DataPoint v = new DataPoint(data.getLong("time"), price.get(i));
+                        values[i] = v;
+                    }
+
+                    LineGraphSeries<DataPoint> series = new LineGraphSeries<>(values);
+
+                    graph.addSeries(series);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.i("******", "Error");
+            }
+        });
+
+        queue.add(jsObjRequest);
+
+    }
+
+
+    private String getDate(long time) {
+        Calendar cal = Calendar.getInstance(Locale.ENGLISH);
+        cal.setTimeInMillis(time * 1000);
+        String date = DateFormat.format("dd-MM-yyyy", cal).toString();
+        return date;
+    }
+
 }
