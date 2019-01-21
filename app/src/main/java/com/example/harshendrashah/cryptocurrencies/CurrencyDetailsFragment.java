@@ -44,7 +44,7 @@ public class CurrencyDetailsFragment extends Fragment {
     ArrayList<String> data = new ArrayList<>();
 
     TextView price, changePCT, marketCap, algorithm, market, title;
-    ImageView image;
+    ImageView image, backArrow;
 
     TextView lowPrice, highPrice, openPrice, volume1h, volume24h;
 
@@ -75,6 +75,7 @@ public class CurrencyDetailsFragment extends Fragment {
         String appbarTitle = data.get(1) + " (" + data.get(0) + ")";
 
         title = rootView.findViewById(R.id.currency_details_title);
+        backArrow = rootView.findViewById(R.id.back_arrow);
         price = rootView.findViewById(R.id.currency_details_price);
         changePCT = rootView.findViewById(R.id.currency_details_CNG_PTC);
         marketCap = rootView.findViewById(R.id.market_cap);
@@ -89,6 +90,13 @@ public class CurrencyDetailsFragment extends Fragment {
         volume24h = rootView.findViewById(R.id.currency_details_volume_24hour);
 
         title.setText(appbarTitle);
+
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().onBackPressed();
+            }
+        });
         String url = BASE_URL + "/data/pricemultifull?fsyms=" + data.get(0) + "&tsyms=USD";
         //Log.i("*****", url);
         prepareCurrencies(url);
