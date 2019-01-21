@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="8dp"
     android:background="@drawable/gradient_background"
     tools:context=".CurrencyDetailsFragment">
 
@@ -84,37 +85,6 @@
                                 android:textSize="24sp" />
 
                         </LinearLayout>
-
-                        <!--<LinearLayout-->
-                        <!--android:layout_width="0dp"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:gravity="end"-->
-                        <!--android:orientation="vertical"-->
-                        <!--android:padding="4dp">-->
-
-                        <!--<TextView-->
-                        <!--android:id="@+id/currency_details_market_cap"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="$ 0.0000002"-->
-                        <!--android:textColor="@color/white"-->
-                        <!--android:textSize="24sp" />-->
-
-                        <!--<View-->
-                        <!--android:layout_width="20dp"-->
-                        <!--android:layout_height="1dp"-->
-                        <!--android:layout_marginRight="4dp"-->
-                        <!--android:background="@color/white" />-->
-
-                        <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="Market Cap"-->
-                        <!--android:textColor="@color/currencyDetailsCardText"-->
-                        <!--android:textSize="24sp" />-->
-
-                        <!--</LinearLayout>-->
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -494,7 +464,7 @@
 
             <com.jjoe64.graphview.GraphView
                 android:layout_width="match_parent"
-                android:layout_margin="2dp"
+                android:layout_margin="1dp"
                 android:layout_height="300dp"
                 android:id="@+id/graph" />
 

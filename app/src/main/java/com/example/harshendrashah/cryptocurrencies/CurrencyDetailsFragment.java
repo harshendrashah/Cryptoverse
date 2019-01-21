@@ -20,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
@@ -31,6 +32,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 
@@ -173,11 +175,25 @@ public class CurrencyDetailsFragment extends Fragment {
                         JSONObject data = js.getJSONObject(i);
                         date.add(getDate(data.getLong("time")));
                         price.add(data.getDouble("close"));
-                        DataPoint v = new DataPoint(data.getLong("time"), price.get(i));
+                        DataPoint v = new DataPoint(new Date(data.getLong("time")).getTime(), price.get(i));
                         values[i] = v;
                     }
 
                     LineGraphSeries<DataPoint> series = new LineGraphSeries<>(values);
+
+                    graph.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
+                        @Override
+                        public String formatLabel(double value, boolean isValueX) {
+                            if (isValueX) {
+                                // show normal x values
+                                return getDate(new Double(value).longValue());
+                            } else {
+
+                                // show currency for y values
+                                return super.formatLabel(value, isValueX);
+                            }
+                        }
+                    });
 
                     graph.addSeries(series);
 
@@ -200,7 +216,7 @@ public class CurrencyDetailsFragment extends Fragment {
     private String getDate(long time) {
         Calendar cal = Calendar.getInstance(Locale.ENGLISH);
         cal.setTimeInMillis(time * 1000);
-        String date = DateFormat.format("dd-MM-yyyy", cal).toString();
+        String date = DateFormat.format("dd-MM", cal).toString();
         return date;
     }
 
