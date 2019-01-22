@@ -48,7 +48,6 @@ public class AllCryptosActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_cryptos);
 
-
         setupMenu();
 
         recyclerView = findViewById(R.id.recycler_view);
@@ -141,7 +140,7 @@ public class AllCryptosActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View view) {
         if (view == itemAll){
-            Toast.makeText(this, "Dashboard", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "All Crptos", Toast.LENGTH_SHORT).show();
         }else if (view == itemTrending){
             Intent i = new Intent(AllCryptosActivity.this, MainActivity.class);
             startActivity(i);
@@ -149,6 +148,8 @@ public class AllCryptosActivity extends AppCompatActivity implements View.OnClic
         }else if (view == itemNews){
             Toast.makeText(this, "News", Toast.LENGTH_SHORT).show();
         }else if (view == itemConverter){
+            Intent i = new Intent(AllCryptosActivity.this, ConverterActivity.class);
+            startActivity(i);
             Toast.makeText(this, "Converter", Toast.LENGTH_SHORT).show();
         }
 

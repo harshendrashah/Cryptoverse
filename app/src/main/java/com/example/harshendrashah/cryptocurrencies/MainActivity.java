@@ -143,12 +143,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (view == itemAll) {
             Intent i = new Intent(MainActivity.this, AllCryptosActivity.class);
             startActivity(i);
-            Toast.makeText(this, "Dashboard", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "All Cryptos", Toast.LENGTH_SHORT).show();
         } else if (view == itemTrending) {
             Toast.makeText(this, "Trending", Toast.LENGTH_SHORT).show();
         } else if (view == itemNews) {
             Toast.makeText(this, "News", Toast.LENGTH_SHORT).show();
         } else if (view == itemConverter) {
+            Intent i = new Intent(MainActivity.this, ConverterActivity.class);
+            startActivity(i);
             Toast.makeText(this, "Converter", Toast.LENGTH_SHORT).show();
         }
     }

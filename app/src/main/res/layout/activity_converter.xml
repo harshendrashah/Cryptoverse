@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConverterActivity">
+
+    <android.support.design.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.example.harshendrashah.cryptocurrencies.CustomSpinner
+            android:id="@+id/spinner"
+            style="@style/Widget.AppCompat.Spinner"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:dropDownWidth="match_parent"
+            android:layout_height="?attr/dropdownListPreferredItemHeight"
+            android:dropDownVerticalOffset="?attr/dropdownListPreferredItemHeight"
+            android:background="@drawable/spinner_background"
+            android:popupBackground="@android:color/white"
+            android:stateListAnimator="@drawable/spinner_animator"
+            android:popupElevation="3dp" />
+
+
+    </android.support.design.card.MaterialCardView>
+
+</android.support.constraint.ConstraintLayout>
