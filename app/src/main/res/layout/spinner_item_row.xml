@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:padding="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/spinner_image"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@color/blue"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp"/>
+
+    <TextView
+        android:id="@+id/spinner_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BTC"
+        android:textSize="22dp"
+        android:layout_margin="2dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" - "
+        android:textSize="22dp"
+        android:layout_margin="2dp"/>
+
+    <TextView
+        android:id="@+id/spinner_full_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bitcoin"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:layout_margin="2dp"/>
+
+</LinearLayout>
+

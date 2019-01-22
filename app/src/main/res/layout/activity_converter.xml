@@ -4,27 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context=".ConverterActivity">
 
     <android.support.design.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardCornerRadius="8dp">
 
-        <com.example.harshendrashah.cryptocurrencies.CustomSpinner
-            android:id="@+id/spinner"
-            style="@style/Widget.AppCompat.Spinner"
-            android:layout_margin="10dp"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:dropDownWidth="match_parent"
-            android:layout_height="?attr/dropdownListPreferredItemHeight"
-            android:dropDownVerticalOffset="?attr/dropdownListPreferredItemHeight"
-            android:background="@drawable/spinner_background"
-            android:popupBackground="@android:color/white"
-            android:stateListAnimator="@drawable/spinner_animator"
-            android:popupElevation="3dp" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="8dp">
 
+
+            <com.example.harshendrashah.cryptocurrencies.CustomSpinner
+                android:id="@+id/spinner"
+                style="@style/Widget.AppCompat.Spinner"
+                android:layout_width="match_parent"
+                android:dropDownWidth="match_parent"
+                android:layout_height="?attr/dropdownListPreferredItemHeight"
+                android:dropDownVerticalOffset="?attr/dropdownListPreferredItemHeight"
+                android:background="@drawable/spinner_background"
+                android:popupBackground="@android:color/white"
+                android:stateListAnimator="@drawable/spinner_animator"
+                android:popupElevation="3dp" />
+
+        </LinearLayout>
 
     </android.support.design.card.MaterialCardView>
 
