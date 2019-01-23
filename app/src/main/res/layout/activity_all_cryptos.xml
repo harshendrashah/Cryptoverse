@@ -15,7 +15,7 @@
             android:id="@+id/app_bar"
             layout="@layout/app_bar" />
 
-        <include layout="@layout/currency_list" />
+        <include layout="@layout/list" />
     </LinearLayout>
 
 

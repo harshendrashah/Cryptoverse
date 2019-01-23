@@ -7,11 +7,23 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.special.ResideMenu.ResideMenu;
 import com.special.ResideMenu.ResideMenuItem;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +40,8 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
     private ResideMenuItem itemAll;
     private ResideMenuItem itemConverter;
 
+    String BASE_URL = "https://min-api.cryptocompare.com";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,17 +50,15 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
         Toolbar toolbar = findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
 
+        TextView title = toolbar.findViewById(R.id.txt_title);
+        title.setText("News");
         recyclerView = findViewById(R.id.recycler_view);
 
         setupMenu();
 
         newsList = new ArrayList<>();
-        News n = new News("Hello there, This is a news Title","Times of India",
-                "https://images.cryptocompare.com/news/cryptoglobe/f31UhdFM888.png");
-        newsList.add(n);
-        newsList.add(n);
-        newsList.add(n);
-        newsList.add(n);
+
+        prepareNews();
 
         adapter = new NewsAdapter(this, newsList);
 
@@ -54,6 +66,40 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+
+    }
+
+    private void prepareNews() {
+
+        String url = BASE_URL + "/data/v2/news/?lang=EN";
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONArray js = response.getJSONArray("Data");
+                    for (int i = 0; i < js.length(); i++) {
+                        JSONObject display = js.getJSONObject(i);
+                        News n = new News(display.getString("title"),display.getString("source"),display.getString("imageurl"));
+                        newsList.add(n);
+                    }
+                    adapter.notifyDataSetChanged();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.i("******", "Error");
+            }
+        });
+
+        queue.add(jsObjRequest);
 
     }
 
