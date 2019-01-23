@@ -55,7 +55,7 @@
             <android.support.design.card.MaterialCardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/currency_details_card"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 app:cardCornerRadius="8dp"
                 app:layout_constraintTop_toBottomOf="@id/title_bar"
@@ -113,7 +113,7 @@
                                 android:id="@+id/currency_details_CNG_PTC"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1.05%"
+                                tools:text="1.05%"
                                 android:textColor="@color/currencyDetailsCardText"
                                 android:textSize="22sp" />
 
@@ -133,7 +133,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingBottom="50dp">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -146,9 +147,9 @@
                                 android:id="@+id/market_cap"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                tools:text="10,00,000"
                                 android:textColor="@color/white"
-                                android:textSize="18sp" />
+                                android:textSize="15sp"
+                                tools:text="10,00,000" />
 
                             <View
                                 android:layout_width="20dp"
@@ -161,7 +162,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="MKTCAP"
                                 android:textColor="@color/currencyDetailsCardText"
-                                android:textSize="18sp" />
+                                android:textSize="15sp" />
 
                         </LinearLayout>
 
@@ -177,9 +178,9 @@
                                 android:id="@+id/currency_details_algo"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                tools:text="SHA 256"
                                 android:textColor="@color/white"
-                                android:textSize="18sp" />
+                                android:textSize="15sp"
+                                tools:text="SHA 256" />
 
                             <View
                                 android:layout_width="20dp"
@@ -191,7 +192,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Algorithm"
                                 android:textColor="@color/currencyDetailsCardText"
-                                android:textSize="18sp" />
+                                android:textSize="15sp" />
 
                         </LinearLayout>
 
@@ -207,9 +208,9 @@
                                 android:id="@+id/currency_details_market"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                tools:text="CCADS"
                                 android:textColor="@color/white"
-                                android:textSize="18sp" />
+                                android:textSize="15sp"
+                                tools:text="CCADS" />
 
                             <View
                                 android:layout_width="20dp"
@@ -222,7 +223,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Market"
                                 android:textColor="@color/currencyDetailsCardText"
-                                android:textSize="18sp" />
+                                android:textSize="15sp" />
 
                         </LinearLayout>
 
@@ -293,7 +294,7 @@
                             android:layout_height="wrap_content"
                             tools:text="10,00,000"
                             android:textColor="@color/red"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
                         <View
                             android:layout_width="20dp"
@@ -306,7 +307,7 @@
                             android:layout_height="wrap_content"
                             android:text="Low"
                             android:textColor="@color/red"
-                            android:textSize="18sp" />
+                            android:textSize="16sp"/>
 
                     </LinearLayout>
 
@@ -324,7 +325,7 @@
                             android:layout_height="wrap_content"
                             tools:text="SHA 256"
                             android:textColor="@color/currencyDetailsTextColor"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
                         <View
                             android:layout_width="20dp"
@@ -336,7 +337,7 @@
                             android:layout_height="wrap_content"
                             android:text="Open"
                             android:textColor="@color/currencyDetailsTextColor"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
                     </LinearLayout>
 
@@ -354,7 +355,7 @@
                             android:layout_height="wrap_content"
                             tools:text="CCADS"
                             android:textColor="@color/green"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
                         <View
                             android:layout_width="20dp"
@@ -367,7 +368,7 @@
                             android:layout_height="wrap_content"
                             android:text="High"
                             android:textColor="@color/green"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
                     </LinearLayout>
 
@@ -401,7 +402,7 @@
                             android:layout_height="wrap_content"
                             tools:text="24012353"
                             android:textColor="@color/currencyDetailsTextColor"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
                         <View
                             android:layout_width="20dp"
@@ -414,7 +415,7 @@
                             android:layout_height="wrap_content"
                             android:text="Volume 1h"
                             android:textColor="@color/currencyDetailsTextColor"
-                            android:textSize="18sp" />
+                            android:textSize="16sp"/>
 
                     </LinearLayout>
 
@@ -432,7 +433,7 @@
                             android:layout_height="wrap_content"
                             tools:text="24012353"
                             android:textColor="@color/currencyDetailsTextColor"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
                         <View
                             android:layout_width="20dp"
@@ -445,7 +446,7 @@
                             android:layout_height="wrap_content"
                             android:text="Volume 24h"
                             android:textColor="@color/currencyDetailsTextColor"
-                            android:textSize="18sp" />
+                            android:textSize="16sp"/>
 
                     </LinearLayout>
 
