@@ -15,78 +15,84 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:cardCornerRadius="8dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="16dp">
+            android:layout_margin="16dp"
+            android:orientation="vertical">
 
             <com.example.harshendrashah.cryptocurrencies.CustomSpinner
                 android:id="@+id/spinner_input"
                 style="@style/Widget.AppCompat.Spinner"
                 android:layout_width="match_parent"
-                android:dropDownWidth="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/abc_spinner_mtrl_am_alpha"
+                android:dropDownWidth="match_parent"
                 android:dropDownVerticalOffset="?attr/dropdownListPreferredItemHeight"
-                android:background="@drawable/spinner_background"
-                android:popupBackground="@android:color/white"
-                android:stateListAnimator="@drawable/spinner_animator"
                 android:popupElevation="3dp" />
 
             <TextView
                 android:id="@+id/rates_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="1 USD - 70 INR"
-                android:textSize="18sp"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                tools:text="1 USD - 70 INR" />
 
             <EditText
                 android:id="@+id/input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
                 android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginBottom="8dp"
+                android:hint="0"
                 android:inputType="numberDecimal"
-                android:hint="24012"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
+
 
             <com.example.harshendrashah.cryptocurrencies.CustomSpinner
                 android:id="@+id/spinner_output"
                 style="@style/Widget.AppCompat.Spinner"
                 android:layout_width="match_parent"
-                android:dropDownWidth="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/abc_spinner_mtrl_am_alpha"
+                android:dropDownWidth="match_parent"
                 android:dropDownVerticalOffset="?attr/dropdownListPreferredItemHeight"
-                android:background="@drawable/spinner_background"
                 android:popupBackground="@android:color/white"
-                android:stateListAnimator="@drawable/spinner_animator"
                 android:popupElevation="3dp" />
 
             <TextView
-                android:id="@+id/rates2"
+                android:id="@+id/rates_output"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="1 USD - 70 INR"
-                android:textSize="18sp"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                tools:text="1 USD - 70 INR" />
 
             <TextView
                 android:id="@+id/output"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="24dp"
+                android:layout_marginLeft="16dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="8dp"
-                android:text="24012"
-                android:textSize="18sp"/>
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="24012" />
 
         </LinearLayout>
 

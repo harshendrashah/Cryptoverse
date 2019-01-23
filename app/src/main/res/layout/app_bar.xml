@@ -28,7 +28,7 @@
             android:layout_toEndOf="@+id/btn_menu"
             android:text="@string/app_name"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
     </RelativeLayout>

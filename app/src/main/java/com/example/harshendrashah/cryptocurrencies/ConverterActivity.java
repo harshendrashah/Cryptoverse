@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,6 +27,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import static java.security.AccessController.getContext;
@@ -34,7 +37,7 @@ public class ConverterActivity extends AppCompatActivity implements View.OnClick
     String BASE_URL = "https://min-api.cryptocompare.com";
     String IMAGE_URL = "https://www.cryptocompare.com";
 
-    String answer;
+    String answer = "0";
     String inp = "0";
 
     private SpinnerAdapter spinnerInputAdapter;
@@ -51,10 +54,13 @@ public class ConverterActivity extends AppCompatActivity implements View.OnClick
     ArrayList<String> spinnerImages = new ArrayList<>();
 
     EditText input;
-    TextView output;
+    TextView output, inputRates, outputRates;
 
     String selectedInputFormat = "BTC";
     String selectedOutputFormat = "BTC";
+
+    String input_r = "1.00 " + selectedInputFormat + " - " + "1.00 " +selectedOutputFormat;
+    String output_r = "1.00 " + selectedOutputFormat + " - " + "1.00 " +selectedInputFormat;
 
     private boolean isUserInteracting;
 
@@ -72,17 +78,19 @@ public class ConverterActivity extends AppCompatActivity implements View.OnClick
 
         input = findViewById(R.id.input);
         output = findViewById(R.id.output);
-        inp = input.getText().toString();
-        output.setText(answer);
 
-        conversion(inp, selectedInputFormat, selectedOutputFormat);
+        inputRates = findViewById(R.id.rates_input);
+        outputRates = findViewById(R.id.rates_output);
+
+        inputRates.setText(input_r);
+        outputRates.setText(output_r);
+
+        output.setText(answer);
+        inp = input.getText().toString();
 
         setupMenu();
 
         spinnerData();
-
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item_selected, data);
-//        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
 
         final CustomSpinner spinnerInput = findViewById(R.id.spinner_input);
         spinnerInputAdapter = new SpinnerAdapter(this, spinnerFullNames, spinnerImages, spinnerCodes);
@@ -147,9 +155,27 @@ public class ConverterActivity extends AppCompatActivity implements View.OnClick
             }
         });
 
-        conversion(inp, selectedInputFormat, selectedOutputFormat);
+        input.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                inp = input.getText().toString();
+                conversion(inp, selectedInputFormat, selectedOutputFormat);
+            }
 
-        output.setText(answer);
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                inp = input.getText().toString();
+                conversion(inp, selectedInputFormat, selectedOutputFormat);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                inp = input.getText().toString();
+                conversion(inp, selectedInputFormat, selectedOutputFormat);
+            }
+        });
+
+      output.setText(answer);
     }
 
     @Override
@@ -158,7 +184,7 @@ public class ConverterActivity extends AppCompatActivity implements View.OnClick
         isUserInteracting = true;
     }
 
-    private void conversion(final String inp, String inputFormat, final String outputFormat) {
+    private void conversion(final String inp, final String inputFormat, final String outputFormat) {
         String url = BASE_URL + "/data/price?fsym=" + inputFormat + "&tsyms=" + outputFormat;
 
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -169,6 +195,11 @@ public class ConverterActivity extends AppCompatActivity implements View.OnClick
             public void onResponse(JSONObject response) {
                 try {
                     String js = response.getString(outputFormat);
+                    DecimalFormat df = new DecimalFormat("0.000000");
+                    String inp_rates = "1 " +  inputFormat + " - " + String.valueOf(df.format(Double.parseDouble(js))) + " " + outputFormat;
+                    String out_rates = "1 " +  outputFormat + " - " + String.valueOf(df.format(1 / Double.parseDouble(js))) + " " + inputFormat;
+                    inputRates.setText(inp_rates);
+                    outputRates.setText(out_rates);
                     if (!inp.equals("")) {
                         answer = String.valueOf(Double.parseDouble(js) * Double.parseDouble(inp));
                         output.setText(answer);
