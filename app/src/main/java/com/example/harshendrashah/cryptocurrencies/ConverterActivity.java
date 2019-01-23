@@ -56,11 +56,8 @@ public class ConverterActivity extends AppCompatActivity implements View.OnClick
     EditText input;
     TextView output, inputRates, outputRates;
 
-    String selectedInputFormat = "BTC";
-    String selectedOutputFormat = "BTC";
-
-    String input_r = "1.00 " + selectedInputFormat + " - " + "1.00 " +selectedOutputFormat;
-    String output_r = "1.00 " + selectedOutputFormat + " - " + "1.00 " +selectedInputFormat;
+    String selectedInputFormat = "";
+    String selectedOutputFormat = "";
 
     private boolean isUserInteracting;
 
@@ -76,21 +73,19 @@ public class ConverterActivity extends AppCompatActivity implements View.OnClick
 
         title.setText("Converter");
 
+        spinnerData();
+
         input = findViewById(R.id.input);
         output = findViewById(R.id.output);
 
         inputRates = findViewById(R.id.rates_input);
         outputRates = findViewById(R.id.rates_output);
 
-        inputRates.setText(input_r);
-        outputRates.setText(output_r);
 
         output.setText(answer);
         inp = input.getText().toString();
 
         setupMenu();
-
-        spinnerData();
 
         final CustomSpinner spinnerInput = findViewById(R.id.spinner_input);
         spinnerInputAdapter = new SpinnerAdapter(this, spinnerFullNames, spinnerImages, spinnerCodes);
@@ -246,6 +241,15 @@ public class ConverterActivity extends AppCompatActivity implements View.OnClick
                         spinnerImages.add(image);
 
                     }
+                    if (spinnerCodes.size() != 0) {
+                        selectedInputFormat = spinnerCodes.get(0);
+                        selectedOutputFormat = spinnerCodes.get(0);
+
+                        String temp = "1 " + selectedInputFormat + " - " + "1 " + selectedOutputFormat;
+
+                        inputRates.setText(temp);
+                        outputRates.setText(temp);
+                    }
                     spinnerInputAdapter.notifyDataSetChanged();
                     spinnerOutputAdapter.notifyDataSetChanged();
                 } catch (JSONException e) {
@@ -305,6 +309,8 @@ public class ConverterActivity extends AppCompatActivity implements View.OnClick
             startActivity(i);
             Toast.makeText(this, "Trending", Toast.LENGTH_SHORT).show();
         }else if (view == itemNews){
+            Intent i = new Intent(ConverterActivity.this, NewsActivity.class);
+            startActivity(i);
             Toast.makeText(this, "News", Toast.LENGTH_SHORT).show();
         }else if (view == itemConverter){
             Toast.makeText(this, "Converter", Toast.LENGTH_SHORT).show();

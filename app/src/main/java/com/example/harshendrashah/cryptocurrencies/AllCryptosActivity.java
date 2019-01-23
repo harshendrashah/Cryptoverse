@@ -155,6 +155,8 @@ public class AllCryptosActivity extends AppCompatActivity implements View.OnClic
             startActivity(i);
             Toast.makeText(this, "Trending", Toast.LENGTH_SHORT).show();
         }else if (view == itemNews){
+            Intent i = new Intent(AllCryptosActivity.this, NewsActivity.class);
+            startActivity(i);
             Toast.makeText(this, "News", Toast.LENGTH_SHORT).show();
         }else if (view == itemConverter){
             Intent i = new Intent(AllCryptosActivity.this, ConverterActivity.class);
