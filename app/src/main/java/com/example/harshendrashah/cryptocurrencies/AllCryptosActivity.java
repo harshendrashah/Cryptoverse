@@ -8,6 +8,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
 
@@ -26,6 +27,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class AllCryptosActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -47,6 +49,13 @@ public class AllCryptosActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_cryptos);
+
+        Toolbar toolbar = findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+
+        TextView title = toolbar.findViewById(R.id.txt_title);
+
+        title.setText("Major Cryptos");
 
         setupMenu();
 
@@ -73,7 +82,7 @@ public class AllCryptosActivity extends AppCompatActivity implements View.OnClic
 
         itemTrending = new ResideMenuItem(this, R.drawable.trending, "Trending");
         itemNews = new ResideMenuItem(this, R.drawable.news, "News");
-        itemAll = new ResideMenuItem(this, R.drawable.home, "All Cryptos");
+        itemAll = new ResideMenuItem(this, R.drawable.home, "Major Cryptos");
         itemConverter = new ResideMenuItem(this, R.drawable.converter, "Converter");
 
         itemAll.setOnClickListener(this);
@@ -140,7 +149,7 @@ public class AllCryptosActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View view) {
         if (view == itemAll){
-            Toast.makeText(this, "All Crptos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Major Crptos", Toast.LENGTH_SHORT).show();
         }else if (view == itemTrending){
             Intent i = new Intent(AllCryptosActivity.this, MainActivity.class);
             startActivity(i);

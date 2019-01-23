@@ -7,6 +7,10 @@
     android:background="@drawable/gradient_background"
     tools:context=".ConverterActivity">
 
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar" />
+
     <android.support.design.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,20 +23,70 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_margin="8dp">
-
+            android:layout_margin="16dp">
 
             <com.example.harshendrashah.cryptocurrencies.CustomSpinner
-                android:id="@+id/spinner"
+                android:id="@+id/spinner_input"
                 style="@style/Widget.AppCompat.Spinner"
                 android:layout_width="match_parent"
                 android:dropDownWidth="match_parent"
-                android:layout_height="?attr/dropdownListPreferredItemHeight"
+                android:layout_height="wrap_content"
                 android:dropDownVerticalOffset="?attr/dropdownListPreferredItemHeight"
                 android:background="@drawable/spinner_background"
                 android:popupBackground="@android:color/white"
                 android:stateListAnimator="@drawable/spinner_animator"
                 android:popupElevation="3dp" />
+
+            <TextView
+                android:id="@+id/rates_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="1 USD - 70 INR"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:inputType="numberDecimal"
+                android:hint="24012"
+                android:textSize="18sp"/>
+
+            <com.example.harshendrashah.cryptocurrencies.CustomSpinner
+                android:id="@+id/spinner_output"
+                style="@style/Widget.AppCompat.Spinner"
+                android:layout_width="match_parent"
+                android:dropDownWidth="match_parent"
+                android:layout_height="wrap_content"
+                android:dropDownVerticalOffset="?attr/dropdownListPreferredItemHeight"
+                android:background="@drawable/spinner_background"
+                android:popupBackground="@android:color/white"
+                android:stateListAnimator="@drawable/spinner_animator"
+                android:popupElevation="3dp" />
+
+            <TextView
+                android:id="@+id/rates2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="1 USD - 70 INR"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/output"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="24012"
+                android:textSize="18sp"/>
 
         </LinearLayout>
 
