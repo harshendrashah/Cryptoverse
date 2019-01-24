@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
@@ -64,10 +65,17 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
                 @Override
                 public void onClick(View v) {
                     Bundle bundle = new Bundle();
-                    String id = news.getNewsId();
-                    ArrayList<String> data = new ArrayList<>();
-                    bundle.putString("Id", id);
-                    // set CurrencyDetailsFragment Arguments
+                    HashMap<String, String> hashMap = new HashMap<>();
+                    bundle.putSerializable("HashMap", hashMap);
+                    hashMap.put("id",news.getNewsId());
+                    hashMap.put("title", news.getNewsTitle());
+                    hashMap.put("imageUrl", news.getNewsImageURL());
+                    hashMap.put("source", news.getNewsSource());
+                    hashMap.put("body", news.getNewsBody());
+                    hashMap.put("sourceUrl", news.getNewsSrcImg());
+                    hashMap.put("publishedOn", String.valueOf(news.getNewsPublishedOn()));
+                    hashMap.put("categories", news.getNewsCategory());
+
                     AppCompatActivity activity = (AppCompatActivity) v.getContext();
                     Fragment fragment = new NewsDetailsFragment();
                     fragment.setArguments(bundle);
@@ -76,7 +84,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
                             .replace(R.id.activity_main, fragment)
                             .addToBackStack(null)
                             .commit();
-
                 }
             });
 

@@ -161,6 +161,7 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(i);
             Toast.makeText(this, "Converter", Toast.LENGTH_SHORT).show();
         }
+        resideMenu.closeMenu();
     }
 
 

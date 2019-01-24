@@ -155,6 +155,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(i);
             Toast.makeText(this, "Converter", Toast.LENGTH_SHORT).show();
         }
+
+        resideMenu.closeMenu();
     }
 
 

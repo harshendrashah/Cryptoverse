@@ -7,29 +7,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 
 public class NewsDetailsFragment extends Fragment {
 
-
-    String id;
+    HashMap<String, String> hashMap;
 
     public NewsDetailsFragment() {
         // Required empty public constructor
-    }
-
-    public static NewsDetailsFragment newInstance(String param1, String param2) {
-        NewsDetailsFragment fragment = new NewsDetailsFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            id = getArguments().getString("Id");
-            Toast.makeText(getContext(), "" + id, Toast.LENGTH_SHORT).show();
+            hashMap = (HashMap<String, String>) getArguments().getSerializable("HashMap");
+            Toast.makeText(getContext(), hashMap.get("id"), Toast.LENGTH_SHORT).show();
         }
     }
 
