@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="8dp"
     android:background="@drawable/gradient_background"
+    android:paddingBottom="8dp"
     tools:context=".CurrencyDetailsFragment">
 
     <android.support.constraint.ConstraintLayout
@@ -16,39 +16,38 @@
             android:id="@+id/constraint_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent">
 
             <!--<include-->
-                <!--android:id="@+id/currency_details_app_bar"-->
-                <!--layout="@layout/currency_details_app_bar" />-->
+            <!--android:id="@+id/currency_details_app_bar"-->
+            <!--layout="@layout/currency_details_app_bar" />-->
 
             <android.support.constraint.ConstraintLayout
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
+                android:id="@+id/title_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/title_bar"
-                android:layout_margin="16dp">
+                android:layout_margin="16dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/back_arrow"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/left_arrow"/>
+                    android:src="@drawable/left_arrow"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/currency_details_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/currency_details_title"
                     android:text="ashjahfjk"
-                    android:textSize="24sp"
                     android:textColor="@color/white"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </android.support.constraint.ConstraintLayout>
 
@@ -84,9 +83,9 @@
                                 android:id="@+id/currency_details_price"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                tools:text="$ 0.0000002"
                                 android:textColor="@color/white"
-                                android:textSize="24sp" />
+                                android:textSize="24sp"
+                                tools:text="$ 0.0000002" />
 
                             <View
                                 android:layout_width="20dp"
@@ -113,9 +112,9 @@
                                 android:id="@+id/currency_details_CNG_PTC"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                tools:text="1.05%"
                                 android:textColor="@color/currencyDetailsCardText"
-                                android:textSize="22sp" />
+                                android:textSize="22sp"
+                                tools:text="1.05%" />
 
                             <ImageView
                                 android:id="@+id/currency_details_CNG_image"
@@ -239,11 +238,11 @@
             android:id="@+id/currency_details_image"
             android:layout_width="@dimen/currency_image"
             android:layout_height="100dp"
-            tools:src="@mipmap/ic_launcher_round"
             app:layout_constraintBottom_toBottomOf="@id/constraint_layout"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/constraint_layout" />
+            app:layout_constraintTop_toBottomOf="@id/constraint_layout"
+            tools:src="@mipmap/ic_launcher_round" />
 
         <TextView
             android:id="@+id/today_text_view"
@@ -292,9 +291,9 @@
                             android:id="@+id/currency_details_low"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="10,00,000"
                             android:textColor="@color/red"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            tools:text="10,00,000" />
 
                         <View
                             android:layout_width="20dp"
@@ -307,7 +306,7 @@
                             android:layout_height="wrap_content"
                             android:text="Low"
                             android:textColor="@color/red"
-                            android:textSize="16sp"/>
+                            android:textSize="16sp" />
 
                     </LinearLayout>
 
@@ -323,9 +322,9 @@
                             android:id="@+id/currency_details_open"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="SHA 256"
                             android:textColor="@color/currencyDetailsTextColor"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            tools:text="SHA 256" />
 
                         <View
                             android:layout_width="20dp"
@@ -353,9 +352,9 @@
                             android:id="@+id/currency_details_high"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="CCADS"
                             android:textColor="@color/green"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            tools:text="CCADS" />
 
                         <View
                             android:layout_width="20dp"
@@ -400,9 +399,9 @@
                             android:id="@+id/currency_details_volume_hour"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="24012353"
                             android:textColor="@color/currencyDetailsTextColor"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            tools:text="24012353" />
 
                         <View
                             android:layout_width="20dp"
@@ -415,7 +414,7 @@
                             android:layout_height="wrap_content"
                             android:text="Volume 1h"
                             android:textColor="@color/currencyDetailsTextColor"
-                            android:textSize="16sp"/>
+                            android:textSize="16sp" />
 
                     </LinearLayout>
 
@@ -431,9 +430,9 @@
                             android:id="@+id/currency_details_volume_24hour"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="24012353"
                             android:textColor="@color/currencyDetailsTextColor"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            tools:text="24012353" />
 
                         <View
                             android:layout_width="20dp"
@@ -446,7 +445,7 @@
                             android:layout_height="wrap_content"
                             android:text="Volume 24h"
                             android:textColor="@color/currencyDetailsTextColor"
-                            android:textSize="16sp"/>
+                            android:textSize="16sp" />
 
                     </LinearLayout>
 
@@ -457,23 +456,23 @@
         </android.support.design.card.MaterialCardView>
 
         <TextView
+            android:id="@+id/trend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/trend"
-            app:layout_constraintTop_toBottomOf="@id/card_details_today"
             android:paddingLeft="16dp"
             android:paddingTop="16dp"
             android:text="TREND:"
             android:textColor="@color/white"
             android:textSize="18sp"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_details_today" />
 
         <android.support.design.card.MaterialCardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginBottom="16dp"
             app:cardCornerRadius="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -481,10 +480,10 @@
             card_view:cardBackgroundColor="#EFEFFB">
 
             <com.jjoe64.graphview.GraphView
+                android:id="@+id/graph"
                 android:layout_width="match_parent"
-                android:layout_margin="1dp"
                 android:layout_height="300dp"
-                android:id="@+id/graph" />
+                android:layout_margin="1dp" />
 
         </android.support.design.card.MaterialCardView>
 
