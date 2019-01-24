@@ -71,7 +71,6 @@ public class CurrencyDetailsFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_currency_details, container, false);
 
-
         String appbarTitle = data.get(1) + " (" + data.get(0) + ")";
 
         title = rootView.findViewById(R.id.currency_details_title);

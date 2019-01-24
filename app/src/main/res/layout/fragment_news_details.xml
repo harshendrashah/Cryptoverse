@@ -33,14 +33,15 @@
             app:layout_constraintRight_toRightOf="@id/details"
             app:layout_constraintTop_toTopOf="@id/details"/>
 
+
         <ImageView
             android:id="@+id/back_arrow"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_margin="16dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@drawable/left_arrow"
+            android:layout_margin="16dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/news_ttl"
@@ -61,7 +62,9 @@
             android:layout_marginTop="16dp"
             android:alpha="0.6"
             android:lineSpacingMultiplier="1.3"
-            android:padding="18dp"
+            android:paddingBottom="18dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintLeft_toLeftOf="parent"

@@ -2,6 +2,7 @@ package com.example.harshendrashah.cryptocurrencies;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.nio.charset.Charset;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
@@ -75,7 +77,7 @@ public class NewsDetailsFragment extends Fragment {
         categories.setText(hashMap.get("categories"));
         srcName.setText(hashMap.get("source"));
         title.setText(hashMap.get("title"));
-        body.setText(hashMap.get("body"));
+        body.setText(Html.fromHtml(hashMap.get("body")));
         published_on.setText(getDate(Long.parseLong(hashMap.get("publishedOn"))));
     }
 
