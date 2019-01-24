@@ -1,6 +1,9 @@
 package com.example.harshendrashah.cryptocurrencies;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
@@ -55,35 +60,25 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             newsSource = view.findViewById(R.id.news_source);
             newsImage = view.findViewById(R.id.news_image);
 
-//            view.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Bundle bundle = new Bundle();
-//                    ArrayList<String> data = new ArrayList<>();
-//                    data.add(currency.getCode());
-//                    data.add(currency.getFullName());
-//                    data.add(currency.getAlgorithm());
-//                    bundle.putStringArrayList("Data", data);
-//                    // set CurrencyDetailsFragment Arguments
-//                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
-//                    String s = activity.getClass().getSimpleName();
-//                    Fragment fragment = new CurrencyDetailsFragment();
-//                    fragment.setArguments(bundle);
-//                    if(s.equals("MainActivity")) {
-//                        activity.getSupportFragmentManager()
-//                                .beginTransaction()
-//                                .replace(R.id.activity_main, fragment)
-//                                .addToBackStack(null)
-//                                .commit();
-//                    } else if (s.equals("AllCryptosActivity")) {
-//                        activity.getSupportFragmentManager()
-//                                .beginTransaction()
-//                                .replace(R.id.activity_all_cryptos, fragment)
-//                                .addToBackStack(null)
-//                                .commit();
-//                    }
-//                }
-//            });
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    String id = news.getNewsId();
+                    ArrayList<String> data = new ArrayList<>();
+                    bundle.putString("Id", id);
+                    // set CurrencyDetailsFragment Arguments
+                    AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                    Fragment fragment = new NewsDetailsFragment();
+                    fragment.setArguments(bundle);
+                    activity.getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.activity_main, fragment)
+                            .addToBackStack(null)
+                            .commit();
+
+                }
+            });
 
         }
     }

@@ -2,18 +2,37 @@ package com.example.harshendrashah.cryptocurrencies;
 
 public class News {
 
+    String newsId;
     String newsTitle;
     String newsSource;
     String newsImageURL;
+    String newsCategory;
+    String newsSrcImg;
+    String newsBody;
+    Long newsPublishedOn;
+
+    public News(String newsId,String newsTitle, String newsSource, String newsImageURL, String newsCategory,
+                String newsSrcImg, String newsBody, Long newsPublishedOn) {
+        this.newsId = newsId;
+        this.newsTitle = newsTitle;
+        this.newsSource = newsSource;
+        this.newsImageURL = newsImageURL;
+        this.newsCategory = newsCategory;
+        this.newsSrcImg = newsSrcImg;
+        this.newsBody = newsBody;
+        this.newsPublishedOn = newsPublishedOn;
+    }
 
     public News() {
 
     }
 
-    public News(String newsTitle, String newsSource, String newsImageURL) {
-        this.newsTitle = newsTitle;
-        this.newsSource = newsSource;
-        this.newsImageURL = newsImageURL;
+    public String getNewsId() {
+        return newsId;
+    }
+
+    public void setNewsId(String newsId) {
+        this.newsId = newsId;
     }
 
     public String getNewsTitle() {
@@ -38,5 +57,37 @@ public class News {
 
     public void setNewsImageURL(String newsImageURL) {
         this.newsImageURL = newsImageURL;
+    }
+
+    public String getNewsCategory() {
+        return newsCategory;
+    }
+
+    public void setNewsCategory(String newsCategory) {
+        this.newsCategory = newsCategory;
+    }
+
+    public String getNewsSrcImg() {
+        return newsSrcImg;
+    }
+
+    public void setNewsSrcImg(String newsSrcImg) {
+        this.newsSrcImg = newsSrcImg;
+    }
+
+    public String getNewsBody() {
+        return newsBody;
+    }
+
+    public void setNewsBody(String newsBody) {
+        this.newsBody = newsBody;
+    }
+
+    public Long getNewsPublishedOn() {
+        return newsPublishedOn;
+    }
+
+    public void setNewsPublishedOn(Long newsPublishedOn) {
+        this.newsPublishedOn = newsPublishedOn;
     }
 }

@@ -83,7 +83,14 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
                     JSONArray js = response.getJSONArray("Data");
                     for (int i = 0; i < js.length(); i++) {
                         JSONObject display = js.getJSONObject(i);
-                        News n = new News(display.getString("title"),display.getString("source"),display.getString("imageurl"));
+                        News n = new News(display.getString("id"),
+                                display.getString("title"),
+                                display.getJSONObject("source_info").getString("name"),
+                                display.getString("imageurl"),
+                                display.getString("categories"),
+                                display.getJSONObject("source_info").getString("img"),
+                                display.getString("body"),
+                                display.getLong("published_on"));
                         newsList.add(n);
                     }
                     adapter.notifyDataSetChanged();
