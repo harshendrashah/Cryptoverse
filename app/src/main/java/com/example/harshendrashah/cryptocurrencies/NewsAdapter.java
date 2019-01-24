@@ -72,9 +72,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
                     hashMap.put("imageUrl", news.getNewsImageURL());
                     hashMap.put("source", news.getNewsSource());
                     hashMap.put("body", news.getNewsBody());
-                    hashMap.put("sourceUrl", news.getNewsSrcImg());
+                    hashMap.put("sourceImgUrl", news.getNewsSrcImg());
                     hashMap.put("publishedOn", String.valueOf(news.getNewsPublishedOn()));
                     hashMap.put("categories", news.getNewsCategory());
+                    hashMap.put("newsUrl", news.getNewsUrl());
 
                     AppCompatActivity activity = (AppCompatActivity) v.getContext();
                     Fragment fragment = new NewsDetailsFragment();

@@ -10,9 +10,10 @@ public class News {
     String newsSrcImg;
     String newsBody;
     Long newsPublishedOn;
+    String newsUrl;
 
     public News(String newsId,String newsTitle, String newsSource, String newsImageURL, String newsCategory,
-                String newsSrcImg, String newsBody, Long newsPublishedOn) {
+                String newsSrcImg, String newsBody, Long newsPublishedOn, String newsUrl) {
         this.newsId = newsId;
         this.newsTitle = newsTitle;
         this.newsSource = newsSource;
@@ -21,6 +22,7 @@ public class News {
         this.newsSrcImg = newsSrcImg;
         this.newsBody = newsBody;
         this.newsPublishedOn = newsPublishedOn;
+        this.newsUrl = newsUrl;
     }
 
     public News() {
@@ -89,5 +91,13 @@ public class News {
 
     public void setNewsPublishedOn(Long newsPublishedOn) {
         this.newsPublishedOn = newsPublishedOn;
+    }
+
+    public String getNewsUrl() {
+        return newsUrl;
+    }
+
+    public void setNewsUrl(String newsUrl) {
+        this.newsUrl = newsUrl;
     }
 }

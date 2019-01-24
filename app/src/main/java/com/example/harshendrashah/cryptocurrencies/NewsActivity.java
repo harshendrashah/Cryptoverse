@@ -90,7 +90,8 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
                                 display.getString("categories"),
                                 display.getJSONObject("source_info").getString("img"),
                                 display.getString("body"),
-                                display.getLong("published_on"));
+                                display.getLong("published_on"),
+                                display.getString("url"));
                         newsList.add(n);
                     }
                     adapter.notifyDataSetChanged();
