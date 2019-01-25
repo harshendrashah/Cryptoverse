@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="175dp"
         card_view:cardCornerRadius="@dimen/card_corner_radius"
-        card_view:cardBackgroundColor="#40e1bee7"
+        card_view:cardBackgroundColor="#201a2480"
         android:layout_marginTop="@dimen/card_margin"
         android:layout_marginLeft="@dimen/card_margin"
         android:layout_marginRight="@dimen/card_margin">
