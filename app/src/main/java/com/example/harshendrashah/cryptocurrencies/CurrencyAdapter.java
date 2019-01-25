@@ -89,7 +89,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.MyView
                     } else if (s.equals("AllCryptosActivity")) {
                         activity.getSupportFragmentManager()
                                 .beginTransaction()
-                                .replace(R.id.activity_all_cryptos, fragment)
+                                .replace(R.id.activity_main, fragment)
                                 .addToBackStack(null)
                                 .commit();
                     }

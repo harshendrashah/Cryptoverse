@@ -14,6 +14,7 @@
         android:layout_marginLeft="@dimen/card_margin"
         android:layout_marginRight="@dimen/card_margin"
         android:elevation="@dimen/card_elevation"
+        android:background="#EDE7F6"
         app:cardCornerRadius="@dimen/card_corner_radius">
 
         <LinearLayout
@@ -31,6 +32,7 @@
                 android:layout_gravity="center_vertical"
                 android:src="@mipmap/ic_launcher_round"
                 app:civ_border_width="4dp"
+                android:scaleType="centerCrop"
                 app:civ_border_color="@color/colorPrimaryDark"/>
 
             <LinearLayout

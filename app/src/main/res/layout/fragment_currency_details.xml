@@ -18,10 +18,6 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent">
 
-            <!--<include-->
-            <!--android:id="@+id/currency_details_app_bar"-->
-            <!--layout="@layout/currency_details_app_bar" />-->
-
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/title_bar"
                 android:layout_width="match_parent"
@@ -42,7 +38,7 @@
                     android:id="@+id/currency_details_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ashjahfjk"
+                    android:text="Currency"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -56,10 +52,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                app:cardCornerRadius="8dp"
+                app:cardCornerRadius="@dimen/card_corner_radius"
                 app:layout_constraintTop_toBottomOf="@id/title_bar"
-                card_view:cardBackgroundColor="@color/currencyDetailsCardBackground"
-                card_view:cardElevation="0dp">
+                card_view:cardBackgroundColor="@color/currencyDetailsCardBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -263,7 +258,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="16dp"
-            app:cardCornerRadius="8dp"
+            app:cardCornerRadius="@dimen/card_corner_radius"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/today_text_view"
             card_view:cardBackgroundColor="#EFEFFB">
@@ -474,7 +469,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="8dp"
+            app:cardCornerRadius="@dimen/card_corner_radius"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/trend"
             card_view:cardBackgroundColor="#EFEFFB">

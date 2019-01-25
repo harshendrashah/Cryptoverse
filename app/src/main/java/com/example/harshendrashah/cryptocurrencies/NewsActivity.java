@@ -45,7 +45,7 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news);
+        setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);

@@ -12,27 +12,39 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp">
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="266dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:background="@color/colorPrimaryDark"/>
+
         <ImageView
             android:id="@+id/news_image"
             android:layout_width="match_parent"
             android:layout_height="250dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/gradient_background"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:src="@color/white"
+            app:layout_constraintRight_toRightOf="@id/view"
+            app:layout_constraintLeft_toLeftOf="@id/view"
+            app:layout_constraintTop_toTopOf="@id/view"
+            app:layout_constraintBottom_toBottomOf="@id/view"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/source_image"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_marginRight="24dp"
-            android:src="@color/black"
+            tools:src="@color/black"
             app:civ_border_color="@color/colorPrimaryDark"
             app:civ_border_width="4dp"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@id/details"
             app:layout_constraintRight_toRightOf="@id/details"
             app:layout_constraintTop_toTopOf="@id/details"/>
-
 
         <ImageView
             android:id="@+id/back_arrow"
@@ -77,7 +89,7 @@
             android:background="#61ced7db"
             android:orientation="vertical"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/news_image">
+            app:layout_constraintTop_toBottomOf="@id/view">
 
             <TextView
                 android:id="@+id/categories"
