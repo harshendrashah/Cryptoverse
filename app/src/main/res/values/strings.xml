@@ -1,7 +1,4 @@
 <resources>
-    <string name="app_name">Crypto Currencies</string>
-    <string name="backdrop_title">CryptoCurrencies</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Cryptoverse</string>
+    <string name="backdrop_title">Cryptoverse</string>
 </resources>
