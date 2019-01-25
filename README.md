@@ -9,19 +9,19 @@ It uses [CryptoCompare API](https://min-api.cryptocompare.com).
 ## Screenshots
 <table>
     <tr>
-        <td><img src = "screenshots/ResideMenu.png"></td>
-        <td><img src = "screenshots/Trending.png"></td>
-        <td><img src = "screenshots/AllCrypto.png"></td>
+        <td><img src = "screenshots/reside_menu.png"></td>
+        <td><img src = "screenshots/main_activity.png"></td>
+        <td><img src = "screenshots/all_crypto_activity.png"></td>
     </tr>
 
 <tr>
-        <td><img src = "screenshots/CurrencyDetails1.png"></td>
-        <td><img src = "screenshots/CurrencyDetails2.png"></td>
-        <td><img src = "screenshots/Converter.png"></td>
+        <td><img src = "screenshots/currency_details_1.png"></td>
+        <td><img src = "screenshots/currency_details_2.png"></td>
+        <td><img src = "screenshots/converter_activity.png"></td>
     </tr>
     <tr>
-        <td><img src = "screenshots/News.png"></td>
-        <td><img src = "screenshots/NewsDetails.png"></td> 
+        <td><img src = "screenshots/news_activity.png"></td>
+        <td><img src = "screenshots/news_details_fragment.png"></td> 
     </tr>
 </table>
 
