@@ -32,7 +32,7 @@ import java.util.List;
 public class AllCryptosActivity extends AppCompatActivity implements View.OnClickListener {
 
     private RecyclerView recyclerView;
-    private CurrencyAdapter adapter;
+    private AllCryptoAdapter adapter;
     private List<Currency> currencyList;
 
     private ResideMenu resideMenu;
@@ -48,7 +48,7 @@ public class AllCryptosActivity extends AppCompatActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_all_crypto);
 
         Toolbar toolbar = findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
@@ -62,9 +62,9 @@ public class AllCryptosActivity extends AppCompatActivity implements View.OnClic
         recyclerView = findViewById(R.id.recycler_view);
 
         currencyList = new ArrayList<>();
-        adapter = new CurrencyAdapter(this, currencyList);
+        adapter = new AllCryptoAdapter(this, currencyList);
 
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
@@ -82,7 +82,7 @@ public class AllCryptosActivity extends AppCompatActivity implements View.OnClic
 
         itemTrending = new ResideMenuItem(this, R.drawable.trending, "Trending");
         itemNews = new ResideMenuItem(this, R.drawable.news, "News");
-        itemAll = new ResideMenuItem(this, R.drawable.home, "Major Cryptos");
+        itemAll = new ResideMenuItem(this, R.drawable.dashboard, "Major Cryptos");
         itemConverter = new ResideMenuItem(this, R.drawable.converter, "Converter");
 
         itemAll.setOnClickListener(this);

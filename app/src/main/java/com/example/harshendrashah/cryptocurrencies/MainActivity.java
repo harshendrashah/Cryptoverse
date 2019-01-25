@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         itemTrending = new ResideMenuItem(this, R.drawable.trending, "Trending");
         itemNews = new ResideMenuItem(this, R.drawable.news, "News");
-        itemAll = new ResideMenuItem(this, R.drawable.home, "Major Cryptos");
+        itemAll = new ResideMenuItem(this, R.drawable.dashboard, "Major Cryptos");
         itemConverter = new ResideMenuItem(this, R.drawable.converter, "Converter");
 
         itemAll.setOnClickListener(this);

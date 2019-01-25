@@ -12,12 +12,14 @@
 
         <ImageButton
             android:id="@+id/btn_menu"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_alignParentLeft="true"
             android:background="@android:color/transparent"
             android:src="@drawable/menu"
-            android:layout_centerVertical="true"/>
+            android:scaleType="fitXY"
+            android:focusable="true"
+            android:layout_centerVertical="true" />
 
         <TextView
             android:id="@+id/txt_title"
