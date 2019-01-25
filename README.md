@@ -1,20 +1,27 @@
 # Cryptoverse
 
+[![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](http://forthebadge.com)
+
 An app for Cryptocurrency prices, trends, conversions and latest news. 
 
-It uses the [CryptoCompare API](https://min-api.cryptocompare.com).
+It uses [CryptoCompare API](https://min-api.cryptocompare.com).
 
 ## Screenshots
 <table>
     <tr>
         <td><img src = "screenshots/ResideMenu.png"></td>
-        <td><img src="screenshots/Trending.png"></td>
-        <td><img src="screenshots/CurrencyDetails.png"></td>
+        <td><img src = "screenshots/Trending.png"></td>
+        <td><img src = "screenshots/AllCrypto.png"></td>
+    </tr>
+
+<tr>
+        <td><img src = "screenshots/CurrencyDetails1.png"></td>
+        <td><img src = "screenshots/CurrencyDetails2.png"></td>
+        <td><img src = "screenshots/Converter.png"></td>
     </tr>
     <tr>
         <td><img src = "screenshots/News.png"></td>
-        <td><img src="screenshots/NewsDetails.png"></td>
-        <td><img src="screenshots/Converter.png"></td>
+        <td><img src = "screenshots/NewsDetails.png"></td> 
     </tr>
 </table>
 
@@ -43,4 +50,4 @@ It uses the [CryptoCompare API](https://min-api.cryptocompare.com).
     
 ## Contributing
 
-Found a bug?? => Create an issue.
+Found a bug?? [Create an issue](https://github.com/harshendrashah/Cryptoverse/issues).
